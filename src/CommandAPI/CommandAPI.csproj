@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>166f33de-5d02-41d4-9486-30d12fee92ce</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +12,6 @@
     </PackageReference>
     <PackageReference Include="MySql.Data.EntityFramework" Version="8.0.25" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="5.0.3.1" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.Lolita.MySql" Version="2.0.0-rtm-10016" />
   </ItemGroup>
 
 </Project>

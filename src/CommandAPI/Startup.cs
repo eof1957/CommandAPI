@@ -6,6 +6,7 @@ using CommandAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
+using System;
 
 namespace CommandAPI
 {
@@ -27,6 +28,7 @@ namespace CommandAPI
             services.AddDbContext<CommandContext>(opt => opt.UseMySQL(builder.ConnectionString));
             
             services.AddControllers();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<ICommandAPIRepo, SqlCommandAPIRepo>();
         }
 

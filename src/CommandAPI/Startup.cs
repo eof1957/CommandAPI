@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
 using System;
+using Newtonsoft.Json.Serialization;
 
 namespace CommandAPI
 {
@@ -28,6 +29,10 @@ namespace CommandAPI
             services.AddDbContext<CommandContext>(opt => opt.UseMySQL(builder.ConnectionString));
             
             services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(s =>
+            {
+                s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<ICommandAPIRepo, SqlCommandAPIRepo>();
         }

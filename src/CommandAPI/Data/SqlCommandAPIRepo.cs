@@ -22,11 +22,6 @@ namespace CommandAPI.Data
             _context.CommandItems.Add(cmd);
         }
 
-        public void DeleteCommand(Command cmd)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public IEnumerable<Command> GetAllCommands()
         {
             return _context.CommandItems.ToList();
@@ -45,6 +40,15 @@ namespace CommandAPI.Data
         public void UpdateCommand(Command cmd)
         {
             _context.Update(cmd);
+        }
+
+        public void DeleteCommand(Command cmd)
+        {
+            if(cmd == null)
+            {
+                throw new ArgumentNullException(nameof(cmd));
+            }
+            _context.CommandItems.Remove(cmd);
         }
     }
 }
